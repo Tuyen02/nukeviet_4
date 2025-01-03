@@ -1,0 +1,83 @@
+[Fri, 27 Dec 2024 14:29:55 +0700] [nuke4.my] [127.0.0.1] [User Error(256): No phpspreadsheet lib. Run command &quot;composer require phpoffice/phpspreadsheet&quot; to install phpspreadsheet] [FILE: /modules/fileserver/admin/export.php] [LINE: 94] [TRACE:]
+#1  LINE: 182   FILE: /admin/index.php
+#2  LINE: 94    FILE: /modules/fileserver/admin/export.php
+
+[Fri, 27 Dec 2024 15:01:56 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught PhpOffice\PhpSpreadsheet\Reader\Exception: File "C:/xampp/htdocs/nukeviet/modules/fileserver/admin/export_excel/template2.xlsx" does not exist. in C:\xampp\htdocs\nukeviet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\File.php:147
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\IOFactory.php(133): PhpOffice\PhpSpreadsheet\Shared\File::assertFile('C:/xampp/htdocs...')
+#1 C:\xampp\htdocs\nukeviet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\IOFactory.php(104): PhpOffice\PhpSpreadsheet\IOFactory::createReaderForFile('C:/xampp/htdocs...', NULL)
+#2 C:\xampp\htdocs\nukeviet\modules\fileserver\admin\export.php(197): PhpOffice\PhpSpreadsheet\IOFactory::load('C:/xampp/htdocs...')
+#3 C:\xampp\htdocs\nukeviet\admin\index.php(182): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown] [FILE: /vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Shared/File.php] [LINE: 147]
+[Fri, 27 Dec 2024 15:03:53 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught PhpOffice\PhpSpreadsheet\Reader\Exception: Unable to identify a reader for this file in C:\xampp\htdocs\nukeviet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\IOFactory.php:168
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\IOFactory.php(104): PhpOffice\PhpSpreadsheet\IOFactory::createReaderForFile('C:/xampp/htdocs...', NULL)
+#1 C:\xampp\htdocs\nukeviet\modules\fileserver\admin\export.php(197): PhpOffice\PhpSpreadsheet\IOFactory::load('C:/xampp/htdocs...')
+#2 C:\xampp\htdocs\nukeviet\admin\index.php(182): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown] [FILE: /vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/IOFactory.php] [LINE: 168]
+[Fri, 27 Dec 2024 15:08:21 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught Error: Call to undefined function pr() in C:\xampp\htdocs\nukeviet\modules\fileserver\admin\export.php:193
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\admin\index.php(182): require()
+#1 {main}
+  thrown] [FILE: /modules/fileserver/admin/export.php] [LINE: 193]
+[Fri, 27 Dec 2024 15:34:16 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught PhpOffice\PhpSpreadsheet\Reader\Exception: Could not find zip member zip://C:/xampp/htdocs/nukeviet/modules/fileserver/admin/export_excel/template2.xlsx#_rels\.rels in C:\xampp\htdocs\nukeviet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Shared\File.php:160
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xlsx.php(399): PhpOffice\PhpSpreadsheet\Shared\File::assertFile('C:/xampp/htdocs...', '_rels/.rels')
+#1 C:\xampp\htdocs\nukeviet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\BaseReader.php(197): PhpOffice\PhpSpreadsheet\Reader\Xlsx->loadSpreadsheetFromFile('C:/xampp/htdocs...')
+#2 C:\xampp\htdocs\nukeviet\modules\fileserver\admin\export.php(194): PhpOffice\PhpSpreadsheet\Reader\BaseReader->load('C:/xampp/htdocs...')
+#3 C:\xampp\htdocs\nukeviet\admin\index.php(182): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown] [FILE: /vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Shared/File.php] [LINE: 160]
+[Fri, 27 Dec 2024 15:39:38 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'create_at' in 'field list' in C:\xampp\htdocs\nukeviet\vendor\vinades\nukeviet\Core\Database.php:544
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\vendor\vinades\nukeviet\Core\Database.php(544): PDO->query('SELECT file_nam...', NULL)
+#1 C:\xampp\htdocs\nukeviet\modules\fileserver\admin\export.php(240): NukeViet\Core\Database->query('SELECT file_nam...')
+#2 C:\xampp\htdocs\nukeviet\admin\index.php(182): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown] [FILE: /vendor/vinades/nukeviet/Core/Database.php] [LINE: 544]
+[Fri, 27 Dec 2024 15:40:15 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined variable $array_subjects] [FILE: /modules/fileserver/admin/export.php] [LINE: 252] [TRACE:]
+#1  LINE: 182   FILE: /admin/index.php
+
+[Fri, 27 Dec 2024 15:47:57 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined variable $array_subjects] [FILE: /modules/fileserver/admin/export.php] [LINE: 260] [TRACE:]
+#1  LINE: 182   FILE: /admin/index.php
+
+[Fri, 27 Dec 2024 15:48:19 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\nukeviet\modules\fileserver\admin\export.php:260
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\admin\index.php(182): require()
+#1 {main}
+  thrown] [FILE: /modules/fileserver/admin/export.php] [LINE: 260]
+[Fri, 27 Dec 2024 15:49:49 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught PhpOffice\PhpSpreadsheet\Exception: Unable to bind unstringable array in C:\xampp\htdocs\nukeviet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\DefaultValueBinder.php:33
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\Cell.php(240): PhpOffice\PhpSpreadsheet\Cell\DefaultValueBinder->bindValue(Object(PhpOffice\PhpSpreadsheet\Cell\Cell), Array)
+#1 C:\xampp\htdocs\nukeviet\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Worksheet.php(1122): PhpOffice\PhpSpreadsheet\Cell\Cell->setValue(Array, Object(PhpOffice\PhpSpreadsheet\Cell\DefaultValueBinder))
+#2 C:\xampp\htdocs\nukeviet\modules\fileserver\admin\export.php(251): PhpOffice\PhpSpreadsheet\Worksheet\Worksheet->setCellValue('B5', Array)
+#3 C:\xampp\htdocs\nukeviet\admin\index.php(182): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown] [FILE: /vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Cell/DefaultValueBinder.php] [LINE: 33]
+[Fri, 27 Dec 2024 15:55:09 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught Error: Call to undefined function setCellValue() in C:\xampp\htdocs\nukeviet\modules\fileserver\admin\export.php:252
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\admin\index.php(182): require()
+#1 {main}
+  thrown] [FILE: /modules/fileserver/admin/export.php] [LINE: 252]
+[Fri, 27 Dec 2024 16:49:09 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined array key "in_groups"] [FILE: /modules/fileserver/functions.php] [LINE: 17] [TRACE:]
+#1  LINE: 349   FILE: /index.php
+
+[Fri, 27 Dec 2024 16:49:09 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught TypeError: in_array(): Argument #2 ($haystack) must be of type array, null given in C:\xampp\htdocs\nukeviet\modules\fileserver\functions.php:17
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\modules\fileserver\functions.php(17): in_array('13', NULL)
+#1 C:\xampp\htdocs\nukeviet\index.php(349): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown] [FILE: /modules/fileserver/functions.php] [LINE: 17]
+[Fri, 27 Dec 2024 17:23:06 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined variable $data_sbj] [FILE: /modules/fileserver/admin/export.php] [LINE: 282] [TRACE:]
+#1  LINE: 182   FILE: /admin/index.php
+
+[Fri, 27 Dec 2024 17:23:06 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught Error: Call to a member function fetch() on null in C:\xampp\htdocs\nukeviet\modules\fileserver\admin\export.php:282
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\admin\index.php(182): require()
+#1 {main}
+  thrown] [FILE: /modules/fileserver/admin/export.php] [LINE: 282]
+[Fri, 27 Dec 2024 17:23:36 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined variable $result] [FILE: /modules/fileserver/admin/export.php] [LINE: 291] [TRACE:]
+#1  LINE: 182   FILE: /admin/index.php
+

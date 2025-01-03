@@ -1,0 +1,88 @@
+[Thu, 26 Dec 2024 09:56:34 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined array key "api_fileserver_GetFile"] [FILE: /admin/authors/functions.php] [LINE: 204] [TRACE:]
+#1  LINE: 182   FILE: /admin/index.php
+#2  LINE: 17    FILE: /admin/authors/api-roles.php
+
+[Thu, 26 Dec 2024 10:15:50 +0700] [nuke4.my] [127.0.0.1] [Warning(2): exif_read_data(giao-dien-module-fileserver.png): File not supported] [FILE: /vendor/vinades/nukeviet/Files/Upload.php] [LINE: 1076] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+#2  LINE: 404   FILE: /modules/fileserver/funcs/main.php
+#3  LINE: 1076  FILE: /vendor/vinades/nukeviet/Files/Upload.php
+
+[Thu, 26 Dec 2024 10:25:00 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined array key "file"] [FILE: /modules/fileserver/Api/UploadFile.php] [LINE: 113] [TRACE:]
+#1  LINE: 235   FILE: /api.php
+
+[Thu, 26 Dec 2024 10:32:32 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined variable $sql] [FILE: /modules/fileserver/Api/UploadFile.php] [LINE: 117] [TRACE:]
+#1  LINE: 235   FILE: /api.php
+
+[Thu, 26 Dec 2024 10:32:49 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined variable $sql] [FILE: /modules/fileserver/Api/UploadFile.php] [LINE: 115] [TRACE:]
+#1  LINE: 235   FILE: /api.php
+
+[Thu, 26 Dec 2024 10:35:20 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined array key "file"] [FILE: /modules/fileserver/Api/UploadFile.php] [LINE: 112] [TRACE:]
+#1  LINE: 235   FILE: /api.php
+
+[Thu, 26 Dec 2024 10:47:32 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught Error: Call to undefined method NukeViet\Core\Request::get_file() in C:\xampp\htdocs\nukeviet\modules\fileserver\Api\UploadFile.php:112
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\api.php(235): NukeViet\Module\fileserver\Api\UploadFile->execute()
+#1 {main}
+  thrown] [FILE: /modules/fileserver/Api/UploadFile.php] [LINE: 112]
+[Thu, 26 Dec 2024 10:53:12 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught Error: Class "NukeViet\Module\fileserver\Api\NukeViet\Files\Upload" not found in C:\xampp\htdocs\nukeviet\modules\fileserver\Api\UploadFile.php:53
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\api.php(235): NukeViet\Module\fileserver\Api\UploadFile->execute()
+#1 {main}
+  thrown] [FILE: /modules/fileserver/Api/UploadFile.php] [LINE: 53]
+[Thu, 26 Dec 2024 11:03:10 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught Error: Call to undefined method NukeViet\Api\ApiResult::setData() in C:\xampp\htdocs\nukeviet\modules\fileserver\Api\UploadFile.php:95
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\api.php(235): NukeViet\Module\fileserver\Api\UploadFile->execute()
+#1 {main}
+  thrown] [FILE: /modules/fileserver/Api/UploadFile.php] [LINE: 95]
+[Thu, 26 Dec 2024 11:03:37 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'alias' in C:\xampp\htdocs\nukeviet\vendor\vinades\nukeviet\Core\Database.php:694
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\vendor\vinades\nukeviet\Core\Database.php(694): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\nukeviet\modules\fileserver\Api\UploadFile.php(92): NukeViet\Core\NukeVietPDOStatement->execute()
+#2 C:\xampp\htdocs\nukeviet\api.php(235): NukeViet\Module\fileserver\Api\UploadFile->execute()
+#3 {main}
+  thrown] [FILE: /vendor/vinades/nukeviet/Core/Database.php] [LINE: 694]
+[Thu, 26 Dec 2024 11:04:33 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught ArgumentCountError: Too few arguments to function NukeViet\Api\ApiResult::set(), 1 passed in C:\xampp\htdocs\nukeviet\modules\fileserver\Api\UploadFile.php on line 95 and exactly 2 expected in C:\xampp\htdocs\nukeviet\vendor\vinades\nukeviet\Api\ApiResult.php:136
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\modules\fileserver\Api\UploadFile.php(95): NukeViet\Api\ApiResult->set(Array)
+#1 C:\xampp\htdocs\nukeviet\api.php(235): NukeViet\Module\fileserver\Api\UploadFile->execute()
+#2 {main}
+  thrown] [FILE: /vendor/vinades/nukeviet/Api/ApiResult.php] [LINE: 136]
+[Thu, 26 Dec 2024 11:14:07 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught Error: Call to undefined method NukeViet\Module\fileserver\Api\UploadFile::calculateFileFolderStats() in C:\xampp\htdocs\nukeviet\modules\fileserver\Api\UploadFile.php:131
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\modules\fileserver\Api\UploadFile.php(97): NukeViet\Module\fileserver\Api\UploadFile->updateLog(0)
+#1 C:\xampp\htdocs\nukeviet\api.php(235): NukeViet\Module\fileserver\Api\UploadFile->execute()
+#2 {main}
+  thrown] [FILE: /modules/fileserver/Api/UploadFile.php] [LINE: 131]
+[Thu, 26 Dec 2024 12:15:20 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined array key "in_groups"] [FILE: /modules/fileserver/functions.php] [LINE: 17] [TRACE:]
+#1  LINE: 349   FILE: /index.php
+
+[Thu, 26 Dec 2024 12:15:20 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught TypeError: in_array(): Argument #2 ($haystack) must be of type array, null given in C:\xampp\htdocs\nukeviet\modules\fileserver\functions.php:17
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\modules\fileserver\functions.php(17): in_array('13', NULL)
+#1 C:\xampp\htdocs\nukeviet\index.php(349): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown] [FILE: /modules/fileserver/functions.php] [LINE: 17]
+[Thu, 26 Dec 2024 22:37:30 +0700] [nuke4.my] [127.0.0.1] [Warning(2): file_get_contents(C:/xampp/htdocs/nukeviet/themes/admin_default/modules/fileserver\excel-testv2.tpl): Failed to open stream: No such file or directory] [FILE: /includes/xtemplate.class.php] [LINE: 1333] [TRACE:]
+#1  LINE: 182   FILE: /admin/index.php
+#2  LINE: 290   FILE: /modules/fileserver/admin/export.php
+#3  LINE: 395   FILE: /includes/xtemplate.class.php
+#4  LINE: 506   FILE: /includes/xtemplate.class.php
+#5  LINE: 537   FILE: /includes/xtemplate.class.php
+#6  LINE: 1365  FILE: /includes/xtemplate.class.php
+#7  LINE: 1333  FILE: /includes/xtemplate.class.php
+
+[Thu, 26 Dec 2024 22:37:30 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined variable $file_id] [FILE: /modules/fileserver/admin/export.php] [LINE: 296] [TRACE:]
+#1  LINE: 182   FILE: /admin/index.php
+
+[Thu, 26 Dec 2024 22:49:23 +0700] [nuke4.my] [127.0.0.1] [User Notice(1024): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it] [FILE: /vendor/vinades/nukeviet/Core/Database.php] [LINE: 94] [TRACE:]
+#1  LINE: 17    FILE: /admin/index.php
+#2  LINE: 276   FILE: /includes/mainfile.php
+#3  LINE: 94    FILE: /vendor/vinades/nukeviet/Core/Database.php
+
+[Thu, 26 Dec 2024 22:49:23 +0700] [nuke4.my] [127.0.0.1] [User Error(256): Sorry! Could not connect to data server] [FILE: /includes/mainfile.php] [LINE: 281] [TRACE:]
+#1  LINE: 17    FILE: /admin/index.php
+#2  LINE: 281   FILE: /includes/mainfile.php
+
+[Thu, 26 Dec 2024 22:59:20 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined variable $data_sbj] [FILE: /modules/fileserver/admin/export.php] [LINE: 295] [TRACE:]
+#1  LINE: 182   FILE: /admin/index.php
+

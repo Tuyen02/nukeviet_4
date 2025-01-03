@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cms>
+	<name><![CDATA[NukeViet CMS 4.5.06]]></name>
+	<version><![CDATA[4.5.06]]></version>
+	<date><![CDATA[Fri, 19 Jul 2024 17:00:00 GMT]]></date>
+	<message><![CDATA[NukeViet 4.5.06 chuyển sang dùng trình soạn thảo CKEditor 5 mặc định. Cập nhật lên phiên bản này cần sửa giao diện. Cần đọc kĩ thông báo phát hành để thực hiện]]></message>
+	<link><![CDATA[https&#x3A;&#x002F;&#x002F;nukeviet.vn&#x002F;]]></link>
+	<updateable><![CDATA[4.5.06]]></updateable>
+	<updatepackage><![CDATA[50]]></updatepackage>
+</cms>

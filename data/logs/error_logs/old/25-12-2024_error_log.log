@@ -1,0 +1,25 @@
+[Wed, 25 Dec 2024 15:28:41 +0700] [nuke4.my] [127.0.0.1] [Warning(2): file_put_contents(C:/xampp/htdocs/nukeviet/uploads/fileserver/file.txt/xzz.txt): Failed to open stream: No such file or directory] [FILE: /modules/fileserver/Api/AddFile.php] [LINE: 123] [TRACE:]
+#1  LINE: 235   FILE: /api.php
+#2  LINE: 123   FILE: /modules/fileserver/Api/AddFile.php
+
+[Wed, 25 Dec 2024 15:58:26 +0700] [nuke4.my] [127.0.0.1] [Warning(2): file_put_contents(C:/xampp/htdocs/nukeviet/uploads/fileserver/123): Failed to open stream: Permission denied] [FILE: /modules/fileserver/Api/AddFile.php] [LINE: 108] [TRACE:]
+#1  LINE: 235   FILE: /api.php
+#2  LINE: 108   FILE: /modules/fileserver/Api/AddFile.php
+
+[Wed, 25 Dec 2024 16:01:04 +0700] [nuke4.my] [127.0.0.1] [Warning(2): unlink(C:/xampp/htdocs/nukeviet/uploads/fileserver/123): Is a directory] [FILE: /modules/fileserver/functions.php] [LINE: 74] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+#2  LINE: 187   FILE: /modules/fileserver/funcs/main.php
+#3  LINE: 74    FILE: /modules/fileserver/functions.php
+
+[Wed, 25 Dec 2024 16:14:41 +0700] [nuke4.my] [127.0.0.1] [Notice(8): Only variables should be passed by reference] [FILE: /modules/fileserver/Api/UpdateFile.php] [LINE: 76] [TRACE:]
+#1  LINE: 235   FILE: /api.php
+
+[Wed, 25 Dec 2024 17:17:29 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined array key "in_groups"] [FILE: /modules/fileserver/functions.php] [LINE: 17] [TRACE:]
+#1  LINE: 349   FILE: /index.php
+
+[Wed, 25 Dec 2024 17:17:29 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught TypeError: in_array(): Argument #2 ($haystack) must be of type array, null given in C:\xampp\htdocs\nukeviet\modules\fileserver\functions.php:17
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\modules\fileserver\functions.php(17): in_array('13', NULL)
+#1 C:\xampp\htdocs\nukeviet\index.php(349): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown] [FILE: /modules/fileserver/functions.php] [LINE: 17]
