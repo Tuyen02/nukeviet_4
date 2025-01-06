@@ -13,7 +13,7 @@ if (!defined('NV_MAINFILE')) {
     exit('Stop!!!');
 }
 
-$db_config['dbhost'] = '127.0.0.1';
+$db_config['dbhost'] = 'nuke4.my';
 $db_config['dbport'] = '';
 $db_config['dbname'] = 'nuke4';
 $db_config['dbsystem'] = 'nuke4';

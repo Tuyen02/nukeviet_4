@@ -1,0 +1,9 @@
+[Mon, 06 Jan 2025 14:33:02 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined array key "in_groups"] [FILE: /modules/fileserver/functions.php] [LINE: 17] [TRACE:]
+#1  LINE: 349   FILE: /index.php
+
+[Mon, 06 Jan 2025 14:33:02 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught TypeError: in_array(): Argument #2 ($haystack) must be of type array, null given in C:\xampp\htdocs\nukeviet\modules\fileserver\functions.php:17
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\modules\fileserver\functions.php(17): in_array('13', NULL)
+#1 C:\xampp\htdocs\nukeviet\index.php(349): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown] [FILE: /modules/fileserver/functions.php] [LINE: 17]

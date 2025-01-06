@@ -1,0 +1,193 @@
+<div class="news_column">
+    <div class="panel panel-default clearfix">
+        <div class="panel-heading">
+                        <a class="dimgray pull-right hidden-xs" title="Xem tiếp..." href="/index.php?language=vi&amp;nv=news&amp;op=Tin-tuc"><em class="fa fa-sign-out">&nbsp;</em></a>
+            
+            <ul class="list-inline sub-list-icon" style="margin: 0">
+                <li><h4><a title="Tin tức" href="/index.php?language=vi&amp;nv=news&amp;op=Tin-tuc"><span>Tin tức</span></a></h4></li>
+                                <li class="hidden-xs"><h4><a class="dimgray" title="Thông cáo báo chí" href="/index.php?language=vi&amp;nv=news&amp;op=thong-cao-bao-chi">Thông cáo báo chí</a></h4></li>
+                
+                <li class="hidden-xs"><h4><a class="dimgray" title="Tin công nghệ" href="/index.php?language=vi&amp;nv=news&amp;op=Tin-cong-nghe">Tin công nghệ</a></h4></li>
+                
+                <li class="hidden-xs"><h4><a class="dimgray" title="Bản tin nội bộ" href="/index.php?language=vi&amp;nv=news&amp;op=Ban-tin-noi-bo">Bản tin nội bộ</a></h4></li>
+                
+            </ul>
+        </div>
+        
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-16 ">
+                                        <a title="Hãy trở thành nhà cung cấp dịch vụ của NukeViet&#33;" href="/index.php?language=vi&amp;nv=news&amp;op=Tin-tuc/hay-tro-thanh-nha-cung-cap-dich-vu-cua-nukeviet-2.html" ><img src="/assets/news/hoptac.jpg" alt="Hãy trở thành nhà cung cấp dịch vụ của NukeViet&#33;" width="100" class="img-thumbnail pull-left imghome" /></a>
+                    
+                    <h3>
+                        <a title="Hãy trở thành nhà cung cấp dịch vụ của NukeViet&#33;" href="/index.php?language=vi&amp;nv=news&amp;op=Tin-tuc/hay-tro-thanh-nha-cung-cap-dich-vu-cua-nukeviet-2.html" >Hãy trở thành nhà cung cấp dịch vụ của NukeViet&#33;</a>
+                        
+                    </h3>
+                    <div class="text-muted">
+                        <ul class="list-unstyled list-inline">
+                            <li><em class="fa fa-clock-o">&nbsp;</em> 19/01/2016 15:34</li>
+                            <li><em class="fa fa-eye">&nbsp;</em> 13</li>
+                                                        <li><em class="fa fa-comment-o">&nbsp;</em> 0</li>
+                            
+                        </ul>
+                    </div>
+                    Nếu bạn là công ty hosting, là công ty thiết kế web có sử dụng mã nguồn NukeViet, là cơ sở đào tạo NukeViet hay là công ty bất kỳ có kinh doanh dịch vụ liên quan đến NukeViet... hãy cho chúng tôi biết thông tin liên hệ của bạn để NukeViet hỗ trợ bạn trong công việc kinh doanh nhé!
+                </div>
+
+                                <div class="col-md-8">
+                    <ul class="related list-items">
+                                                <li class="icon_list">
+                            <a class="show h4" href="/index.php?language=vi&amp;nv=news&amp;op=Tin-tuc/ho-tro-tap-huan-va-trien-khai-nukeviet-cho-cac-phong-so-gd-dt-12.html" title="Hỗ trợ tập huấn và triển khai NukeViet cho các Phòng, Sở GD&amp;ĐT"  data-content="Trên cơ sở Hướng dẫn thực hiện nhiệm vụ CNTT năm học 2015 - 2016 của Bộ Giáo dục và Đào tạo, Công ty cổ phần phát triển nguồn mở Việt Nam và các doanh..." data-img="/assets/news/tap-huan-pgd-ha-dong-2015.jpg" data-rel="tooltip" data-placement="bottom" >Hỗ trợ tập huấn và triển khai NukeViet cho các Phòng, Sở GD&amp;ĐT</a>
+                        </li>
+                        
+                        <li class="icon_list">
+                            <a class="show h4" href="/index.php?language=vi&amp;nv=news&amp;op=Tin-tuc/nukeviet-duoc-bo-gd-dt-dua-vao-huong-dan-thuc-hien-nhiem-vu-cntt-nam-hoc-2015-2016-11.html" title="NukeViet được Bộ GD&amp;ĐT đưa vào Hướng dẫn thực hiện nhiệm vụ CNTT năm học 2015 - 2016"  data-content="Trong Hướng dẫn thực hiện nhiệm vụ CNTT năm học 2015 - 2016 của Bộ Giáo dục và Đào tạo, NukeViet được đưa vào các hạng mục&#x3A; Tập huấn sử dụng phần mềm..." data-img="/assets/news/nukeviet-cms.jpg" data-rel="tooltip" data-placement="bottom" >NukeViet được Bộ GD&amp;ĐT đưa vào Hướng dẫn thực hiện nhiệm vụ CNTT năm học 2015 - 2016</a>
+                        </li>
+                        
+                        <li class="icon_list">
+                            <a class="show h4" href="/index.php?language=vi&amp;nv=news&amp;op=Tin-tuc/chuong-trinh-thuc-tap-sinh-tai-cong-ty-vinades-9.html" title="Chương trình thực tập sinh tại công ty VINADES"  data-content="Cơ hội để những sinh viên năng động được học tập, trải nghiệm, thử thách sớm với những tình huống thực tế, được làm việc cùng các chuyên gia có..." data-img="/assets/news/thuc-tap-sinh.jpg" data-rel="tooltip" data-placement="bottom" >Chương trình thực tập sinh tại công ty VINADES</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</div><div class="news_column">
+    <div class="panel panel-default clearfix">
+        <div class="panel-heading">
+            
+            <ul class="list-inline sub-list-icon" style="margin: 0">
+                <li><h4><a title="Sản phẩm" href="/index.php?language=vi&amp;nv=news&amp;op=San-pham"><span>Sản phẩm</span></a></h4></li>
+                
+            </ul>
+        </div>
+        
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-16 ">
+                                        <a title="NukeViet 4.3 có gì mới?" href="/index.php?language=vi&amp;nv=news&amp;op=San-pham/nukeviet-4-3-co-gi-moi-15.html" target="_blank"><img src="/assets/news/chuc-mung-nukeviet-thong-tu-20-bo-tttt.jpg" alt="NukeViet 4.3 có gì mới?" width="100" class="img-thumbnail pull-left imghome" /></a>
+                    
+                    <h3>
+                        <a title="NukeViet 4.3 có gì mới?" href="/index.php?language=vi&amp;nv=news&amp;op=San-pham/nukeviet-4-3-co-gi-moi-15.html" target="_blank">NukeViet 4.3 có gì mới?</a>
+                        
+                    </h3>
+                    <div class="text-muted">
+                        <ul class="list-unstyled list-inline">
+                            <li><em class="fa fa-clock-o">&nbsp;</em> 09/11/2017 15:25</li>
+                            <li><em class="fa fa-eye">&nbsp;</em> 2</li>
+                                                        <li><em class="fa fa-comment-o">&nbsp;</em> 0</li>
+                            
+                        </ul>
+                    </div>
+                    NukeViet 4.3 là phiên bản nâng cấp của phiên bản NukeViet 4.2 tập trung vào việc fix các vấn đề bất cập còn tồn tại, tối ưu trải nghiệm của người dùng.
+                </div>
+
+                                <div class="col-md-8">
+                    <ul class="related list-items">
+                                                <li class="icon_list">
+                            <a class="show h4" href="/index.php?language=vi&amp;nv=news&amp;op=San-pham/nukeviet-4-2-co-gi-moi-14.html" title="NukeViet 4.2 có gì mới?" target="_blank" data-content="NukeViet 4.2 là phiên bản nâng cấp của phiên bản NukeViet 4.0 tập trung vào việc fix các vấn đề bất cập còn tồn tại của NukeViet 4.0, Thêm các tính..." data-img="/assets/news/chuc-mung-nukeviet-thong-tu-20-bo-tttt.jpg" data-rel="tooltip" data-placement="bottom" >NukeViet 4.2 có gì mới?</a>
+                        </li>
+                        
+                        <li class="icon_list">
+                            <a class="show h4" href="/index.php?language=vi&amp;nv=news&amp;op=San-pham/nukeviet-4-0-co-gi-moi-13.html" title="NukeViet 4.0 có gì mới?"  data-content="NukeViet 4 là phiên bản NukeViet được cộng đồng đánh giá cao, hứa hẹn nhiều điểm vượt trội về công nghệ đến thời điểm hiện tại. NukeViet 4 thay đổi..." data-img="/assets/news/chuc-mung-nukeviet-thong-tu-20-bo-tttt.jpg" data-rel="tooltip" data-placement="bottom" >NukeViet 4.0 có gì mới?</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div class="news_column">
+    <div class="panel panel-default clearfix">
+        <div class="panel-heading">
+            
+            <ul class="list-inline sub-list-icon" style="margin: 0">
+                <li><h4><a title="Đối tác" href="/index.php?language=vi&amp;nv=news&amp;op=Doi-tac"><span>Đối tác</span></a></h4></li>
+                
+            </ul>
+        </div>
+        
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-24">
+                                        <a title="Hỗ trợ tập huấn và triển khai NukeViet cho các Phòng, Sở GD&amp;ĐT" href="/index.php?language=vi&amp;nv=news&amp;op=Doi-tac/ho-tro-tap-huan-va-trien-khai-nukeviet-cho-cac-phong-so-gd-dt-12.html" ><img src="/assets/news/tap-huan-pgd-ha-dong-2015.jpg" alt="Tập huấn triển khai NukeViet tại Phòng Giáo dục và Đào tạo Hà Đông - Hà Nội" width="100" class="img-thumbnail pull-left imghome" /></a>
+                    
+                    <h3>
+                        <a title="Hỗ trợ tập huấn và triển khai NukeViet cho các Phòng, Sở GD&amp;ĐT" href="/index.php?language=vi&amp;nv=news&amp;op=Doi-tac/ho-tro-tap-huan-va-trien-khai-nukeviet-cho-cac-phong-so-gd-dt-12.html" >Hỗ trợ tập huấn và triển khai NukeViet cho các Phòng, Sở GD&amp;ĐT</a>
+                        
+                    </h3>
+                    <div class="text-muted">
+                        <ul class="list-unstyled list-inline">
+                            <li><em class="fa fa-clock-o">&nbsp;</em> 21/10/2015 08:33</li>
+                            <li><em class="fa fa-eye">&nbsp;</em> 1</li>
+                                                        <li><em class="fa fa-comment-o">&nbsp;</em> 0</li>
+                            
+                        </ul>
+                    </div>
+                    Trên cơ sở Hướng dẫn thực hiện nhiệm vụ CNTT năm học 2015 - 2016 của Bộ Giáo dục và Đào tạo, Công ty cổ phần phát triển nguồn mở Việt Nam và các doanh nghiệp phát triển NukeViet trong cộng đồng NukeViet đang tích cực công tác hỗ trợ cho các phòng GD&ĐT, Sở GD&ĐT triển khai 2 nội dung chính: Hỗ trợ công tác đào tạo tập huấn hướng dẫn sử dụng NukeViet và Hỗ trợ triển khai NukeViet cho các trường, Phòng và Sở GD&ĐT
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div class="news_column">
+    <div class="panel panel-default clearfix">
+        <div class="panel-heading">
+            
+            <ul class="list-inline sub-list-icon" style="margin: 0">
+                <li><h4><a title="Tuyển dụng" href="/index.php?language=vi&amp;nv=news&amp;op=Tuyen-dung"><span>Tuyển dụng</span></a></h4></li>
+                
+            </ul>
+        </div>
+        
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-16 ">
+                                        <a title="Tuyển dụng lập trình viên PHP phát triển NukeViet" href="/index.php?language=vi&amp;nv=news&amp;op=Tuyen-dung/Tuyen-dung-lap-trinh-vien-PHP-3.html" ><img src="/assets/news/tuyendung-kythuat.jpg" alt="Tuyển dụng" width="100" class="img-thumbnail pull-left imghome" /></a>
+                    
+                    <h3>
+                        <a title="Tuyển dụng lập trình viên PHP phát triển NukeViet" href="/index.php?language=vi&amp;nv=news&amp;op=Tuyen-dung/Tuyen-dung-lap-trinh-vien-PHP-3.html" >Tuyển dụng lập trình viên PHP phát triển NukeViet</a>
+                        
+                    </h3>
+                    <div class="text-muted">
+                        <ul class="list-unstyled list-inline">
+                            <li><em class="fa fa-clock-o">&nbsp;</em> 19/01/2016 15:33</li>
+                            <li><em class="fa fa-eye">&nbsp;</em> 0</li>
+                                                        <li><em class="fa fa-comment-o">&nbsp;</em> 0</li>
+                            
+                        </ul>
+                    </div>
+                    Bạn đam mê nguồn mở? Bạn đang cần tìm một công việc phù hợp với thế mạnh của bạn về PHP và MySQL? Hãy gia nhập VINADES.,JSC để xây dựng mã nguồn mở hàng đầu cho Việt Nam.
+                </div>
+
+                                <div class="col-md-8">
+                    <ul class="related list-items">
+                                                <li class="icon_list">
+                            <a class="show h4" href="/index.php?language=vi&amp;nv=news&amp;op=Tuyen-dung/hoc-viec-tai-cong-ty-vinades-10.html" title="Học việc tại công ty VINADES"  data-content="Công ty cổ phần phát triển nguồn mở Việt Nam tạo cơ hội việc làm và học việc miễn phí cho những ứng viên có đam mê thiết kế web, lập trình PHP… được..." data-img="/assets/news/hoc-viec-tai-cong-ty-vinades.jpg" data-rel="tooltip" data-placement="bottom" >Học việc tại công ty VINADES</a>
+                        </li>
+                        
+                        <li class="icon_list">
+                            <a class="show h4" href="/index.php?language=vi&amp;nv=news&amp;op=Tuyen-dung/Tuyen-dung-chuyen-vien-do-hoa-4.html" title="Tuyển dụng chuyên viên đồ hoạ phát triển NukeViet"  data-content="Bạn đam mê nguồn mở? Bạn là chuyên gia đồ họa? Chúng tôi sẽ giúp bạn hiện thực hóa ước mơ của mình với một mức lương đảm bảo. Hãy gia nhập..." data-img="/assets/news/tuyendung-kythuat.jpg" data-rel="tooltip" data-placement="bottom" >Tuyển dụng chuyên viên đồ hoạ phát triển NukeViet</a>
+                        </li>
+                        
+                        <li class="icon_list">
+                            <a class="show h4" href="/index.php?language=vi&amp;nv=news&amp;op=Tuyen-dung/Tuyen-dung-lap-trinh-vien-front-end-HTML-CSS-JS-5.html" title="Tuyển dụng lập trình viên front-end (HTML/CSS/JS) phát triển NukeViet"  data-content="Bạn đam mê nguồn mở? Bạn đang cần tìm một công việc phù hợp với thế mạnh của bạn về front-end &#40;HTML&#x002F;CSS&#x002F;JS&#41;? Hãy gia nhập VINADES.,JSC để xây dựng mã..." data-img="/assets/news/tuyendung-kythuat.jpg" data-rel="tooltip" data-placement="bottom" >Tuyển dụng lập trình viên front-end (HTML/CSS/JS) phát triển NukeViet</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</div>

@@ -1,39 +1,36 @@
-version: '3.8'
-
+# docker-compose up
 services:
-  nginx:
-    image: nginx:latest
-    container_name: nginx
-    ports:
-      - "80:80"
-    volumes:
-      - .:/var/www/html
-      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
-    depends_on:
-      - php-fpm
-
-  php-fpm:
+  web:
+    container_name: phpapache
     build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: php-fpm
+      context: ./_docker/apache
+      dockerfile: DockerFile
+    ports:
+      - 8000:80
     volumes:
-      - .:/var/www/html
+      - ./src:/var/www/html
+    depends_on:
+      - db
+  db:
+    container_name: nuke4.my
+    image: mariadb:latest
+    restart: unless-stopped
     environment:
-      - MYSQL_HOST=mysql
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=root
-      - MYSQL_DATABASE=nukeviet
-
-  mysql:
-    image: mysql:5.7
-    container_name: mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: nukeviet
+        MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 1
+        MYSQL_DATABASE: nuke4
+        MYSQL_USER: root
+        MYSQL_PASSWORD: 
     volumes:
-      - mysql_data:/var/lib/mysql
-
-volumes:
-  mysql_data:
+        - ./_docker/mysql/data:/var/lib/mysql
+        - ./_docker/mysql/conf/my.cnf:/etc/mysql/my.cnf
+    ports:
+        - 3307:3306
+  phpmyadmin:
+    container_name: admin
+    image: phpmyadmin:latest
+    ports:
+        - 8080:80
+    environment:
+        PMA_HOST: db
+    depends_on:
+        - db
