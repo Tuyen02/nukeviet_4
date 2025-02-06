@@ -1,0 +1,88 @@
+[Sat, 11 Jan 2025 07:37:29 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined array key "in_groups"] [FILE: /modules/fileserver/functions.php] [LINE: 18] [TRACE:]
+#1  LINE: 349   FILE: /index.php
+
+[Sat, 11 Jan 2025 13:50:10 +0700] [nuke4.my] [127.0.0.1] [Notice(8): Only variables should be passed by reference] [FILE: /modules/fileserver/funcs/main.php] [LINE: 337] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+
+[Sat, 11 Jan 2025 13:50:39 +0700] [nuke4.my] [127.0.0.1] [Notice(8): Only variables should be passed by reference] [FILE: /modules/fileserver/funcs/main.php] [LINE: 280] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+
+[Sat, 11 Jan 2025 15:13:21 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined array key 1] [FILE: /modules/fileserver/functions.php] [LINE: 11] [TRACE:]
+#1  LINE: 349   FILE: /index.php
+
+[Sat, 11 Jan 2025 15:13:21 +0700] [nuke4.my] [127.0.0.1] [Run-time notices(8192): preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated] [FILE: /modules/fileserver/functions.php] [LINE: 11] [TRACE:]
+#1  LINE: 349   FILE: /index.php
+#2  LINE: 11    FILE: /modules/fileserver/functions.php
+
+[Sat, 11 Jan 2025 15:13:21 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined array key 2] [FILE: /modules/fileserver/functions.php] [LINE: 12] [TRACE:]
+#1  LINE: 349   FILE: /index.php
+
+[Sat, 11 Jan 2025 15:13:21 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined array key 2] [FILE: /modules/fileserver/functions.php] [LINE: 13] [TRACE:]
+#1  LINE: 349   FILE: /index.php
+
+[Sat, 11 Jan 2025 22:42:58 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Trying to access array offset on value of type bool] [FILE: /modules/fileserver/funcs/edit.php] [LINE: 21] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+
+[Sat, 11 Jan 2025 22:42:58 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Trying to access array offset on value of type bool] [FILE: /modules/fileserver/funcs/edit.php] [LINE: 26] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+
+[Sat, 11 Jan 2025 22:42:58 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Trying to access array offset on value of type bool] [FILE: /modules/fileserver/funcs/edit.php] [LINE: 27] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+
+[Sat, 11 Jan 2025 22:42:58 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Trying to access array offset on value of type bool] [FILE: /modules/fileserver/funcs/edit.php] [LINE: 30] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+
+[Sat, 11 Jan 2025 22:42:58 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Trying to access array offset on value of type bool] [FILE: /modules/fileserver/funcs/edit.php] [LINE: 36] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+
+[Sat, 11 Jan 2025 22:42:58 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Trying to access array offset on value of type bool] [FILE: /modules/fileserver/funcs/edit.php] [LINE: 37] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+
+[Sat, 11 Jan 2025 22:42:58 +0700] [nuke4.my] [127.0.0.1] [Run-time notices(8192): pathinfo(): Passing null to parameter #1 ($path) of type string is deprecated] [FILE: /modules/fileserver/funcs/edit.php] [LINE: 39] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+#2  LINE: 39    FILE: /modules/fileserver/funcs/edit.php
+
+[Sat, 11 Jan 2025 22:42:58 +0700] [nuke4.my] [127.0.0.1] [Warning(2): file_get_contents(C:/xampp/htdocs/nukeviet): Failed to open stream: Permission denied] [FILE: /modules/fileserver/funcs/edit.php] [LINE: 53] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+#2  LINE: 53    FILE: /modules/fileserver/funcs/edit.php
+
+[Sat, 11 Jan 2025 22:44:33 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Trying to access array offset on value of type bool] [FILE: /modules/fileserver/funcs/edit.php] [LINE: 18] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+
+[Sat, 11 Jan 2025 22:44:33 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Trying to access array offset on value of type bool] [FILE: /modules/fileserver/funcs/edit.php] [LINE: 23] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+
+[Sat, 11 Jan 2025 22:44:33 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Trying to access array offset on value of type bool] [FILE: /modules/fileserver/funcs/edit.php] [LINE: 24] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+
+[Sat, 11 Jan 2025 22:44:33 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Trying to access array offset on value of type bool] [FILE: /modules/fileserver/funcs/edit.php] [LINE: 33] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+
+[Sat, 11 Jan 2025 22:44:33 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Trying to access array offset on value of type bool] [FILE: /modules/fileserver/funcs/edit.php] [LINE: 34] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+
+[Sat, 11 Jan 2025 22:44:33 +0700] [nuke4.my] [127.0.0.1] [Run-time notices(8192): pathinfo(): Passing null to parameter #1 ($path) of type string is deprecated] [FILE: /modules/fileserver/funcs/edit.php] [LINE: 36] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+#2  LINE: 36    FILE: /modules/fileserver/funcs/edit.php
+
+[Sat, 11 Jan 2025 22:44:33 +0700] [nuke4.my] [127.0.0.1] [Warning(2): file_get_contents(C:/xampp/htdocs/nukeviet): Failed to open stream: Permission denied] [FILE: /modules/fileserver/funcs/edit.php] [LINE: 50] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+#2  LINE: 50    FILE: /modules/fileserver/funcs/edit.php
+
+[Sat, 11 Jan 2025 22:53:41 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Trying to access array offset on value of type bool] [FILE: /modules/fileserver/funcs/edit.php] [LINE: 20] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+
+[Sat, 11 Jan 2025 22:53:41 +0700] [nuke4.my] [127.0.0.1] [Run-time notices(8192): pathinfo(): Passing null to parameter #1 ($path) of type string is deprecated] [FILE: /modules/fileserver/funcs/edit.php] [LINE: 23] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+#2  LINE: 23    FILE: /modules/fileserver/funcs/edit.php
+
+[Sat, 11 Jan 2025 22:53:41 +0700] [nuke4.my] [127.0.0.1] [Run-time notices(8192): pathinfo(): Passing null to parameter #1 ($path) of type string is deprecated] [FILE: /modules/fileserver/theme.php] [LINE: 224] [TRACE:]
+#1  LINE: 369   FILE: /index.php
+#2  LINE: 57    FILE: /modules/fileserver/funcs/edit.php
+#3  LINE: 224   FILE: /modules/fileserver/theme.php
+
+[Sat, 11 Jan 2025 22:54:58 +0700] [nuke4.my] [127.0.0.1] [Error(1): Uncaught Error: Call to undefined function nv_page_edit() in C:\xampp\htdocs\nukeviet\modules\fileserver\funcs\edit.php:64
+Stack trace:
+#0 C:\xampp\htdocs\nukeviet\index.php(369): require()
+#1 {main}
+  thrown] [FILE: /modules/fileserver/funcs/edit.php] [LINE: 64]

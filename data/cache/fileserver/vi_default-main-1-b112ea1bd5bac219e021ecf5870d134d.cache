@@ -2,8 +2,9 @@
     <h1 class="text-center">Module File Server</h1>
     <br>
     
+    
     <form action="/index.php?language=vi&amp;nv=fileserver" method="get" id="searchForm" class="form-inline my-2 my-lg-0">
-        <input type="hidden" name="lev" value="0">
+        <input type="hidden" name="lev" value="">
         <input type="text" class="form-control" placeholder="Tìm kiếm ..." id="searchInput" name="search"
             value="">
         <select class="form-control ml-2" name="search_type">
@@ -17,9 +18,7 @@
     <br>
     <form action="/index.php?language=vi&amp;nv=fileserver" method="post" enctype="multipart/form-data" id="uploadForm"
         class="form-inline my-2 my-lg-0">
-        <button type="button" class="btn btn-warning" id="backButton">
-            <i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Quay lại
-        </button>
+        
         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#createModal">Tạo mới</a>
         <button type="button" class="btn btn-primary" id="uploadButton">Tải lên</button>
         <input type="file" name="uploadfile" id="uploadfile" required style="display: none;">
@@ -40,74 +39,27 @@
             </tr>
         </thead>
         <tbody>
-                        <tr>
-                <td><input type="checkbox" name="files[]" value="1" data-checksess="86a37563b3c180bc455d2623c7cdca48"></td>
-                <td>
-                    <a href="/index.php?language=vi&amp;nv=fileserver&amp;op=edit/test-txt-1&page=1">
-                        <i class="fa fa-file-o" aria-hidden="true"></i>
-                        test.txt
-                    </a>
-                </td>
-                <td>--</td>
-                <td>01/01/2025</td>
-                <!-- <td>
-                    <a href="/index.php?language=vi&amp;nv=fileserver&amp;op=perm/test-txt-1">11</i>
-                    </a>
-                </td>
-                <td> 1</td> -->
-                <td>
-                    <a href="/index.php?language=vi&amp;nv=fileserver&amp;op=main&amp;file_id=1&action=delete&checksess=86a37563b3c180bc455d2623c7cdca48" data-file-id="1" data-checksess=""
-                        class="btn btn-sm btn-danger delete" title="Xóa">
-                        <i class="fa fa-trash-o"></i>
-                    </a>
-                    <button class="btn btn-sm btn-info rename" data-file-name="test.txt"
-                        data-file-id="1" data-toggle="modal" data-target="#renameModal"
-                        title="Đổi tên">
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    </button>
-                                        <a href="/index.php?language=vi&amp;nv=fileserver&amp;op=edit/test-txt-1&page=1" class="btn btn-sm btn-info" title="Sửa">
-                        <i class="fa fa-pencil-square"></i>
-                    </a>
-                    
-                    <!-- <button class="btn btn-sm btn-info share" data-file-id="1" data-toggle="modal"
-                        data-target="#shareModal" title="Chia sẻ">
-                        <i class="fa fa-link" aria-hidden="true"></i>
-                    </button> -->
-                                        <a href="/index.php?language=vi&amp;nv=fileserver&amp;op=clone/test-txt-1" class="btn btn-sm btn-info" title="Sao chép">
-                        <i class="fa fa-clone"></i>
-                    </a>
-                    
-                    <a href="/index.php?language=vi&amp;nv=fileserver&amp;op=perm/test-txt-1" class="btn btn-sm btn-info share" title="Phân quyền">
-                        <i class="fa fa-link"></i>
-                    </a>
-                                        <a href="/index.php?language=vi&amp;nv=fileserver&amp;op=main&amp;file_id=1&download=1" class="btn btn-sm btn-success download" data-file-id=""
-                        title="Tải xuống">
-                        <i class="fa fa-download" aria-hidden="true"></i>
-                    </a>
-                    
-                </td>
-            </tr>
             
         </tbody>
         <tfoot>
             <tr>
                 <td class="gray" colspan="7">
-                        <strong>Full Size:</strong> 
-                        <span class="badge text-bg-light border-radius-0">--</span>
-                        <strong>File:</strong> 
-                        <span class="badge badge-secondary">1</span>
-                        <strong>Folder:</strong> 
-                        <span class="badge badge-secondary">0</span>
-                    </div>
-                </td>
-            </tr>
-        </tfoot>
-    </table>
-    <hr>
-    <button type="submit" name="compress" class="btn btn-primary mt-2 " id="compressButton"><i
-            class="fa fa-file-archive-o" aria-hidden="true"></i> Nén</button>
-    <button type="submit" name="deleteAll" class="btn btn-danger mt-2 deleteAll" id="deleteAll"><i class="fa fa-trash"
-            aria-hidden="true"></i> Xóa</button>
+                    <strong>Full Size:</strong>
+                    <span class="badge text-bg-light border-radius-0"></span>
+                    <strong>File:</strong>
+                    <span class="badge badge-secondary"></span>
+                    <strong>Folder:</strong>
+                    <span class="badge badge-secondary"></span>
+</div>
+</td>
+</tr>
+</tfoot>
+</table>
+<hr>
+<button type="submit" name="compress" class="btn btn-primary mt-2 " id="compressButton"><i class="fa fa-file-archive-o"
+        aria-hidden="true"></i> Nén</button>
+<button type="submit" name="deleteAll" class="btn btn-danger mt-2 deleteAll" id="deleteAll"><i class="fa fa-trash"
+        aria-hidden="true"></i> Xóa</button>
 </div>
 <div class="text-center"></div>
 
