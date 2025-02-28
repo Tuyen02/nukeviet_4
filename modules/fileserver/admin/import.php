@@ -1,5 +1,4 @@
 <?php
-
 if (!defined('NV_IS_FILE_ADMIN')) {
     die('Stop!!!');
 }
@@ -8,6 +7,7 @@ $error = '';
 $success = '';
 $admin_info['allow_files_type'][] = 'xlsx';
 $admin_info['allow_files_type'][] = 'xls';
+
 if ($nv_Request->isset_request('submit_upload', 'post') && isset($_FILES['uploadfile']) && is_uploaded_file($_FILES['uploadfile']['tmp_name'])) {
     $file_extension = pathinfo($_FILES['uploadfile']['name'], PATHINFO_EXTENSION);
     if (!in_array($file_extension, ['xlsx', 'xls'])) {
@@ -23,73 +23,155 @@ if ($nv_Request->isset_request('submit_upload', 'post') && isset($_FILES['upload
         );
         $upload->setLanguage($lang_global);
 
-        $upload_info = $upload->save_file($_FILES['uploadfile'], NV_ROOTDIR . '/data/tmp/import-file', false, $global_config['nv_auto_resize']);
+        $upload_dir = NV_ROOTDIR . '/data/tmp/import-file';
+        if (!file_exists($upload_dir)) {
+            mkdir($upload_dir, 0777, true);
+        }
+
+        $upload_info = $upload->save_file($_FILES['uploadfile'], $upload_dir, false, $global_config['nv_auto_resize']);
 
         if ($upload_info['error'] == '') {
             $link_file = $upload_info['name'];
 
             try {
                 $objPHPExcel = \PhpOffice\PhpSpreadsheet\IOFactory::load($link_file);
-                $sheet = $objPHPExcel->getActiveSheet();
-                $Totalrow = $sheet->getHighestRow();
-                $array_tender = [];
+                $sheetNames = $objPHPExcel->getSheetNames();
+                $importedSheets = [];
 
-                for ($i = 5; $i <= $Totalrow; $i++) {
-                    $_stt = $sheet->getCell('A' . $i)->getValue();
-                    if (!empty($_stt)) {
-                        $array_tender[$_stt]['file_name'] = $sheet->getCell('B' . $i)->getValue();
-                        $array_tender[$_stt]['alias'] = $sheet->getCell('C' . $i)->getValue();
-                        $array_tender[$_stt]['file_path'] = $sheet->getCell('D' . $i)->getValue();
-                        $array_tender[$_stt]['file_size'] = $sheet->getCell('E' . $i)->getValue();
-                        $array_tender[$_stt]['uploaded_by'] = $sheet->getCell('F' . $i)->getValue();
-                        $array_tender[$_stt]['created_at'] = $sheet->getCell('G' . $i)->getValue();
-                        $array_tender[$_stt]['updated_at'] = $sheet->getCell('H' . $i)->getValue();
-                        $array_tender[$_stt]['is_folder'] = $sheet->getCell('I' . $i)->getValue();
-                        $array_tender[$_stt]['status'] = $sheet->getCell('J' . $i)->getValue();
-                        $array_tender[$_stt]['lev'] = $sheet->getCell('K' . $i)->getValue();
-                        $array_tender[$_stt]['view'] = $sheet->getCell('L' . $i)->getValue();
-                        $array_tender[$_stt]['share'] = $sheet->getCell('M' . $i)->getValue();
-                        $array_tender[$_stt]['compressed'] = $sheet->getCell('N' . $i)->getValue();
-                    } else {
-                        if (!empty($sheet->getCell('D' . $i)->getValue())) {
-                            $error[] = sprintf($nv_Lang->getModule('col_import'), $i);
+                function importSheetData($sheet, $parent_id, $db, $objPHPExcel, &$importedSheets, $parent_path = '/uploads/fileserver')
+                {
+                    $Totalrow = $sheet->getHighestRow();
+
+                    for ($i = 5; $i <= $Totalrow; $i++) {
+                        $real_path = $sheet->getCell('C' . $i)->getValue();
+                        $file_path = $real_path;
+                        if (!empty($file_path)) {
+                            $file_name = basename($file_path);
+                            $file_path = $parent_path . '/' . $file_name;
+                            $full_path = NV_ROOTDIR . $file_path;
+                            $file_size = file_exists($full_path) ? filesize($full_path) : 0;
+                            $is_folder = pathinfo($file_name, PATHINFO_EXTENSION) == '' ? 1 : 0;
+
+                            $sql_check = "SELECT file_id FROM nv4_vi_fileserver_files WHERE file_path = :file_path";
+                            $stmt_check = $db->prepare($sql_check);
+                            $stmt_check->bindParam(':file_path', $file_path, PDO::PARAM_STR);
+                            $stmt_check->execute();
+                            $existing_file_id = $stmt_check->fetchColumn();
+
+                            if ($existing_file_id) {
+                                $counter = 1;
+                                if ($is_folder) {
+                                    $new_file_name = pathinfo($file_name, PATHINFO_FILENAME) . "($counter)";
+                                } else {
+                                    $new_file_name = pathinfo($file_name, PATHINFO_FILENAME) . "($counter)." . pathinfo($file_name, PATHINFO_EXTENSION);
+                                }
+                                $new_file_path = $parent_path . '/' . $new_file_name;
+                                while (file_exists(NV_ROOTDIR . $new_file_path)) {
+                                    $counter++;
+                                    if ($is_folder) {
+                                        $new_file_name = pathinfo($file_name, PATHINFO_FILENAME) . "($counter)";
+                                    } else {
+                                        $new_file_name = pathinfo($file_name, PATHINFO_FILENAME) . "($counter)." . pathinfo($file_name, PATHINFO_EXTENSION);
+                                    }
+                                    $new_file_path = $parent_path . '/' . $new_file_name;
+                                }
+                                $sql_update = "UPDATE nv4_vi_fileserver_files SET file_name = :new_file_name, file_path = :new_file_path WHERE file_id = :file_id";
+                                $stmt_update = $db->prepare($sql_update);
+                                $stmt_update->bindParam(':new_file_name', $new_file_name, PDO::PARAM_STR);
+                                $stmt_update->bindParam(':new_file_path', $new_file_path, PDO::PARAM_STR);
+                                $stmt_update->bindParam(':file_id', $existing_file_id, PDO::PARAM_INT);
+                                $stmt_update->execute();
+                            }
+
+                            $file_content = '';
+                            if (!$is_folder && file_exists($real_path)) {
+                                $file_content = file_get_contents($real_path);
+                            }
+
+                            $sql = "INSERT INTO nv4_vi_fileserver_files (file_name, file_path, file_size, uploaded_by, created_at, is_folder, lev) 
+                                    VALUES (:file_name, :file_path, :file_size, :uploaded_by, :created_at, :is_folder, :lev)";
+                            $stmt = $db->prepare($sql);
+                            $stmt->bindParam(':file_name', $file_name, PDO::PARAM_STR);
+                            $stmt->bindParam(':file_path', $file_path, PDO::PARAM_STR);
+                            $stmt->bindParam(':file_size', $file_size, PDO::PARAM_STR);
+                            $uploaded_by = 1;
+                            $stmt->bindParam(':uploaded_by', $uploaded_by, PDO::PARAM_INT);
+                            $created_at = NV_CURRENTTIME;
+                            $stmt->bindParam(':created_at', $created_at, PDO::PARAM_INT);
+                            $stmt->bindParam(':is_folder', $is_folder, PDO::PARAM_INT);
+                            $stmt->bindParam(':lev', $parent_id, PDO::PARAM_INT);
+                            $stmt->execute();
+
+                            $file_id = $db->lastInsertId();
+                            updateAlias($file_id, $file_name);
+                            updatePerm($file_id);
+                            updateLog($parent_id);
+
+                            if ($is_folder) {
+                                $folder_path = NV_ROOTDIR . $file_path;
+                                if (!file_exists($folder_path)) {
+                                    mkdir($folder_path, 0777, true);
+                                }
+                            } else {
+                                $dir_path = dirname($full_path);
+                                if (!file_exists($dir_path)) {
+                                    mkdir($dir_path, 0777, true);
+                                }
+                                if (!file_exists($full_path)) {
+                                    file_put_contents($full_path, $file_content);
+                                }
+                            }
+
+                            if ($is_folder && !in_array($file_name, $importedSheets)) {
+                                $sub_sheet = $objPHPExcel->getSheetByName($file_name);
+                                if ($sub_sheet) {
+                                    $importedSheets[] = $file_name;
+                                    importSheetData($sub_sheet, $file_id, $db, $objPHPExcel, $importedSheets, $file_path);
+                                }
+                            }
                         }
                     }
                 }
 
-                if (!empty($array_tender)) {
-                    foreach ($array_tender as $stt => $data) {
-                        // Chuẩn bị dữ liệu
-                        $file_name = $db->quote($data['file_name']);
-                        $alias = $db->quote($data['alias']);
-                        $file_path = $db->quote($data['file_path']);
-                        $file_size = intval($data['file_size']);
-                        $uploaded_by = intval($admin_info['userid']);
-                        $created_at = NV_CURRENTTIME;
-                        $updated_at = NV_CURRENTTIME;
-                        $is_folder = intval($data['is_folder']);
-                        $status = intval($data['status']);
-                        $lev = intval($data['lev']);
-                        $view = intval($data['view']);
-                        $share = intval($data['share']);
-                        $compressed = intval($data['compressed']);
+                $sheet = $objPHPExcel->getSheet(0);
+                importSheetData($sheet, 0, $db, $objPHPExcel, $importedSheets);
 
+                foreach ($sheetNames as $sheetIndex => $sheetName) {
+                    if ($sheetIndex == 0)
+                        continue;
 
-                        $sql = 'INSERT INTO ' . $db_config['prefix'] . '_' . NV_LANG_DATA . '_' . $module_data . '_files 
-                            (file_name, alias, file_path, file_size, uploaded_by, created_at, updated_at, is_folder, status, lev, view, share, compressed) 
-                            VALUES 
-                            (' . $file_name . ', ' . $alias . ', ' . $file_path . ', ' . $file_size . ', ' . $uploaded_by . ', ' . $created_at . ', ' . $updated_at . ', ' . $is_folder . ', ' . $status . ', ' . $lev . ', ' . $view . ', ' . $share . ', ' . $compressed . ')';
+                    if (!in_array($sheetName, $importedSheets)) {
+                        $sheet = $objPHPExcel->getSheet($sheetIndex);
 
-                        $db->query($sql);
+                        $sql = "SELECT file_id, file_path FROM nv4_vi_fileserver_files WHERE file_name = :file_name AND is_folder = 1 AND lev = 0";
+                        $stmt = $db->prepare($sql);
+                        $stmt->bindParam(':file_name', $sheetName, PDO::PARAM_STR);
+                        $stmt->execute();
+                        $parent = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                        if ($parent) {
+                            importSheetData($sheet, $parent['file_id'], $db, $objPHPExcel, $importedSheets, $parent['file_path']);
+                        }
                     }
-                    $success = 'import_success';
                 }
+                $success = $lang_module['import_success'];
             } catch (Exception $e) {
-                $error[] = $e->getMessage();
+                $error = $e->getMessage();
             }
         } else {
-            $error[] = $upload_info['error'];
+            $error = $upload_info['error'];
         }
+    }
+}
+
+$download = $nv_Request->get_int('download', 'get', 0);
+if ($download == 1) {
+    $file_path = NV_ROOTDIR . '/themes/default/images/fileserver/import_file.xlsx';
+    if (file_exists($file_path)) {
+        $download = new NukeViet\Files\Download($file_path, NV_ROOTDIR . '/themes/default/images/fileserver/', 'import_file.xlsx', true, 0);
+        $download->download_file();
+    } else {
+        $error = $lang_module['error_file_not_found'];
     }
 }
 
@@ -98,6 +180,7 @@ $xtpl->assign('LANG', $lang_module);
 $xtpl->assign('OP', $op);
 $xtpl->assign('MODULE_NAME', $module_name);
 $xtpl->assign('FORM_ACTION', NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module_name . '&amp;' . NV_OP_VARIABLE . '=' . $op);
+$xtpl->assign('URL_DOWNLOAD', NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module_name . '&amp;' . NV_OP_VARIABLE . '=import&download=1');
 
 if (!empty($error)) {
     $xtpl->assign('ERROR', $error);
@@ -115,4 +198,3 @@ $contents = $xtpl->text('main');
 include NV_ROOTDIR . '/includes/header.php';
 echo nv_admin_theme($contents);
 include NV_ROOTDIR . '/includes/footer.php';
-

@@ -8,7 +8,7 @@
     <!-- BEGIN: success -->
     <div class="alert alert-warning">{SUCCESS}</div>
     <!-- END: success -->
-    <form action="{FORM_ACTION}" method="get" id="searchForm" class="form-inline my-2 my-lg-0">
+    <form action="" method="get" id="searchForm" class="form-inline my-2 my-lg-0">
         <input type="hidden" name="lev" value="{ROW.lev}">
         <input type="text" class="form-control" placeholder="{LANG.search}" id="searchInput" name="search"
             value="{SEARCH_TERM}">
@@ -21,7 +21,7 @@
     </form>
 
     <br>
-    <form action="{FORM_ACTION}" method="post" enctype="multipart/form-data" id="uploadForm"
+    <form action="" method="post" enctype="multipart/form-data" id="uploadForm"
         class="form-inline my-2 my-lg-0">
         <!-- BEGIN: back -->
         <button type="button" class="btn btn-warning" id="backButton">
@@ -31,6 +31,7 @@
         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#createModal">{LANG.create_btn}</a>
         <button type="button" class="btn btn-primary" id="uploadButton">{LANG.upload_btn}</button>
         <input type="file" name="uploadfile" id="uploadfile" required style="display: none;">
+        <input type="hidden" name="lev" id="lev" value="{ROW.lev}">
         <input type="hidden" name="submit_upload" value="1">
     </form>
 
@@ -65,29 +66,15 @@
                 </td>
                 <td>{ROW.username} {ROW.uploaded_by}</td> -->
                 <td>
-                    <a href="{ROW.url_delete}" data-file-id="{ROW.file_id}" data-checksess="{CHECK_SESS}"
-                        class="btn btn-sm btn-danger delete" title="{LANG.delete_btn}">
+                    <button class="btn btn-sm btn-danger delete" data-file-id="{ROW.file_id}"
+                        data-checksess="{CHECK_SESS}" data-url="{ROW.url_delete}" title="{LANG.delete_btn}">
                         <i class="fa fa-trash-o"></i>
-                    </a>
+                    </button>
                     <button class="btn btn-sm btn-info rename" data-file-name="{ROW.file_name}"
                         data-file-id="{ROW.file_id}" data-toggle="modal" data-target="#renameModal"
                         title="{LANG.rename_btn}">
                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                     </button>
-                    <!-- BEGIN: edit -->
-                    <a href="{EDIT}" class="btn btn-sm btn-info" title="{LANG.edit_btn}">
-                        <i class="fa fa-pencil-square"></i>
-                    </a>
-                    <!-- END: edit -->
-                    <!-- <button class="btn btn-sm btn-info share" data-file-id="{ROW.file_id}" data-toggle="modal"
-                        data-target="#shareModal" title="{LANG.share_btn}">
-                        <i class="fa fa-link" aria-hidden="true"></i>
-                    </button> -->
-                    <!-- BEGIN: copy -->
-                    <a href="{COPY}" class="btn btn-sm btn-info" title="{LANG.copy}">
-                        <i class="fa fa-clone"></i>
-                    </a>
-                    <!-- END: copy -->
                     <a href="{ROW.url_perm}" class="btn btn-sm btn-info share" title="{LANG.perm_btn}">
                         <i class="fa fa-link"></i>
                     </a>
@@ -97,6 +84,16 @@
                         <i class="fa fa-download" aria-hidden="true"></i>
                     </a>
                     <!-- END: download -->
+                    <!-- BEGIN: edit -->
+                    <a href="{EDIT}" class="btn btn-sm btn-info" title="{LANG.edit_btn}">
+                        <i class="fa fa-pencil-square"></i>
+                    </a>
+                    <!-- END: edit -->
+                    <!-- BEGIN: copy -->
+                    <a href="{COPY}" class="btn btn-sm btn-info" title="{LANG.copy}">
+                        <i class="fa fa-clone"></i>
+                    </a>
+                    <!-- END: copy -->
                 </td>
             </tr>
             <!-- END: file_row -->
@@ -104,22 +101,44 @@
         <tfoot>
             <tr>
                 <td class="gray" colspan="7">
-                    <strong>Full Size:</strong>
+                    <strong>{LANG.full_size}</strong>
                     <span class="badge text-bg-light border-radius-0">{ROW.total_size}</span>
-                    <strong>File:</strong>
+                    <strong>{LANG.file}</strong>
                     <span class="badge badge-secondary">{ROW.total_files}</span>
-                    <strong>Folder:</strong>
+                    <strong>{LANG.folder}</strong>
                     <span class="badge badge-secondary">{ROW.total_folders}</span>
-</div>
-</td>
-</tr>
-</tfoot>
-</table>
-<hr>
-<button type="submit" name="compress" class="btn btn-primary mt-2 " id="compressButton"><i class="fa fa-file-archive-o"
-        aria-hidden="true"></i> {LANG.zip_btn}</button>
-<button type="submit" name="deleteAll" class="btn btn-danger mt-2 deleteAll" id="deleteAll"><i class="fa fa-trash"
-        aria-hidden="true"></i> {LANG.delete_btn}</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <hr>
+    <a href="#" class="btn btn-primary" id="compressButton" data-toggle="modal" data-target="#compressModal">
+        <i class="fa fa-file-archive-o" aria-hidden="true"></i> {LANG.zip_btn}
+    </a>
+
+    <div class="modal fade" id="compressModal" tabindex="-1" role="dialog" aria-labelledby="compressModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="compressModalLabel">{LANG.compress_modal}</h3>
+                </div>
+                <div class="modal-body">
+                    <form id="compressForm" onsubmit="submitCompressForm(event);">
+                        <div class="form-group">
+                            <label for="zipFileName">{LANG.zip_file_name}</label>
+                            <input type="text" class="form-control" id="zipFileName" name="zipFileName" required>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{LANG.close_btn}</button>
+                        <button type="submit" class="btn btn-primary">{LANG.zip_btn}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="submit" name="deleteAll" class="btn btn-danger mt-2 deleteAll" id="deleteAll"><i class="fa fa-trash"
+            aria-hidden="true"></i> {LANG.delete_btn}
+    </button>
 </div>
 <div class="text-center">{GENERATE_PAGE}</div>
 
@@ -131,7 +150,7 @@
                 <h3 class="modal-title col-lg-11" id="createModalLabel">{LANG.create_btn}</h3>
             </div>
             <div class="modal-body">
-                <form id="createForm" method="post" action="">
+                <form id="createForm" method="post" action="" onsubmit="submitCreateForm(event);">
                     <div class="form-group">
                         <label for="type">{LANG.type}:</label>
                         <select class="form-control" id="type" name="type">
@@ -162,7 +181,7 @@
                 <h3 class="modal-title col-lg-11" id="renameModalLabel">{LANG.rename_btn}</h3>
             </div>
             <div class="modal-body">
-                <form id="renameForm" method="post" action="">
+                <form id="renameForm" method="post" action="" onsubmit="submitRenameForm(event);">
                     <div class="form-group">
                         <label for="new_name">{LANG.new_name}:</label>
                         <input type="text" class="form-control" id="new_name" name="new_name" required>
@@ -179,56 +198,55 @@
     </div>
 </div>
 
-<!-- <div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header row">
-                <h3 class="modal-title col-lg-11" id="shareModalLabel">{LANG.share_btn}</h3>
-            </div>
-            <div class="modal-body">
-                <form id="shareForm" method="post" action="">
-                    <div class="form-group">
-                        <label for="share_option">Chọn tùy chọn chia sẻ:</label>
-                        <select class="form-control" id="share_option" name="share_option" required>
-                            <option value="0">Không chia sẻ</option>
-                            <option value="1">Chia sẻ với người có tài khoản</option>
-                            <option value="2">Chia sẻ với tất cả mọi người</option>
-                        </select>
-                    </div>
-                    <input type="hidden" name="file_id" id="share_file_id" value="">
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary" onclick="submitShareForm();">Chia sẻ</button>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
 <script>
     function submitCreateForm() {
-        data = {
-            'action': 'create',
-            'name_f': $("#name_f").val(),
-            'type': $("#type").val(),
+        var name_f = $("#name_f").val();
+        var type = $("#type").val();
+        var extension = name_f.split('.').pop().toLowerCase();
+
+        if (type == '0' && (extension == '')) {
+            alert('Tên file không hợp lệ. Vui lòng nhập tên file có đuôi hợp lệ.');
+            return;
         }
+
+        if (name_f.trim() == '') {
+            alert('Tên file không được để trống.');
+            return;
+        }
+
+        var data = {
+            'action': 'create',
+            'name_f': name_f,
+            'type': type,
+        };
+
         $.ajax({
             type: 'POST',
             url: "",
             data: data,
             success: function (res) {
-                console.log(res);
-                alert(res.message);
-                location.reload();
+                if (res.status == 'error') {
+                    alert(res.message);
+                } else {
+                    location.reload();
+                    alert(res.message);
+                }
             },
             error: function () {
-                alert('Đã có lỗi xảy ra. Vui lòng thử lại.');
+                alert(res.message);
             },
         });
     }
+
+    $(document).on('click', '.delete', function () {
+        const fileId = $(this).data('file-id');
+        const deleteUrl = $(this).data('url');
+        const checksess = $(this).data('checksess');
+
+        if (confirm("Bạn có chắc chắn muốn xóa mục này?")) {
+            handleDelete(fileId, deleteUrl, checksess);
+        }
+    });
 
     function handleDelete(fileId, deleteUrl, checksess) {
         const data = {
@@ -236,7 +254,6 @@
             file_id: fileId,
             checksess: checksess,
         };
-
         $.ajax({
             type: 'POST',
             url: deleteUrl,
@@ -251,16 +268,6 @@
             }
         });
     }
-
-    $(document).on('click', '.delete', function () {
-        const fileId = $(this).data('file-id');
-        const deleteUrl = $(this).attr('href');
-        const checksess = $(this).data('checksess');
-
-        if (confirm("Bạn có chắc chắn muốn xóa mục này?")) {
-            handleDelete(fileId, deleteUrl, checksess);
-        }
-    });
 
     function submitRenameForm() {
         const data = {
@@ -278,7 +285,7 @@
                 location.reload();
             },
             error: function () {
-                alert('Đã có lỗi xảy ra. Vui lòng thử lại.');
+                alert(res.message);
             }
         });
     }
@@ -309,7 +316,7 @@
                 location.reload();
             },
             error: function () {
-                alert('Đã có lỗi xảy ra. Vui lòng thử lại.');
+                alert(res.message);
             }
         });
     });
@@ -338,7 +345,7 @@
         console.log("File ID being sent:", data.file_id);
         $.ajax({
             type: 'POST',
-            url: "{FORM_ACTION}",
+            url: "",
             data: data,
             success: function (res) {
                 console.log(res);
@@ -346,7 +353,7 @@
                 location.reload();
             },
             error: function () {
-                alert('Đã có lỗi xảy ra. Vui lòng thử lại.');
+                alert(res.message);
             }
         });
     }
@@ -356,35 +363,97 @@
         $("#share_file_id").val(fileId);
     });
 
-    document.querySelector('[name="compress"]').addEventListener('click', function (e) {
-        e.preventDefault();
+    $(document).ready(function () {
+        $('#compressButton').on('click', function (e) {
+            e.preventDefault();
 
-        const selectedFiles = [];
-        document.querySelectorAll('input[name="files[]"]:checked').forEach(input => {
-            selectedFiles.push(input.value);
+            const selectedFiles = [];
+            document.querySelectorAll('input[name="files[]"]:checked').forEach(input => {
+                selectedFiles.push(input.value);
+            });
+
+            if (selectedFiles.length == 0) {
+                alert("Vui lòng chọn ít nhất một file để nén!");
+                return false;
+            }
+
+            console.log(selectedFiles);
         });
 
-        if (selectedFiles.length == 0) {
-            alert("Vui lòng chọn ít nhất một file để nén!");
-            return;
-        }
+        let isFileNameValid = false;
 
-        console.log(selectedFiles);
+        $('#zipFileName').on('input', function () {
+            var zipFileName = $(this).val();
+            const selectedFiles = [];
+            document.querySelectorAll('input[name="files[]"]:checked').forEach(input => {
+                selectedFiles.push(input.value);
+            });
+            if (zipFileName) {
+                $.ajax({
+                    type: 'POST',
+                    url: '',
+                    data: {
+                        action: 'check_filename',
+                        zipFileName: zipFileName,
+                        files: selectedFiles,
+                        lev: 0
+                    },
+                    success: function (res) {
+                        if (res.status == 'error') {
+                            $('#fileNameWarning').text(res.message).show();
+                            $('#fileNameSuccess').hide();
+                            isFileNameValid = false;
+                        } else {
+                            $('#fileNameSuccess').text(res.message).show();
+                            $('#fileNameWarning').hide();
+                            isFileNameValid = true;
+                        }
+                    },
+                    error: function () {
+                        alert(res.message);
+                        isFileNameValid = false;
+                    }
+                });
+            } else {
+                $('#fileNameWarning').hide();
+                $('#fileNameSuccess').hide();
+                isFileNameValid = false;
+            }
+        });
 
-        $.ajax({
-            type: 'POST',
-            url: '',
-            data: {
-                action: 'compress',
-                files: selectedFiles
-            },
-            success: function (res) {
-                console.log(res);
-                alert(res.message);
-                location.reload();
-            },
-            error: function () {
-                alert('Đã có lỗi xảy ra. Vui lòng thử lại.');
+        $('#compressForm').on('submit', function (e) {
+            e.preventDefault();
+            var zipFileName = $('#zipFileName').val();
+            const selectedFiles = [];
+            document.querySelectorAll('input[name="files[]"]:checked').forEach(input => {
+                selectedFiles.push(input.value);
+            });
+
+            if (!isFileNameValid) {
+                alert('Tên file không hợp lệ. Vui lòng kiểm tra lại.');
+                return false;
+            }
+
+            if (zipFileName && selectedFiles.length > 0) {
+                $.ajax({
+                    type: 'POST',
+                    url: '',
+                    data: {
+                        action: 'compress',
+                        zipFileName: zipFileName,
+                        files: selectedFiles
+                    },
+                    success: function (res) {
+                        console.log(res);
+                        alert(res.message);
+                        location.reload();
+                    },
+                    error: function () {
+                        alert(res.message);
+                    }
+                });
+            } else {
+                alert('Vui lòng nhập tên file zip!');
             }
         });
     });
@@ -443,7 +512,7 @@
                 location.reload();
             },
             error: function () {
-                alert('Đã có lỗi xảy ra. Vui lòng thử lại.');
+                alert(res.message);
             }
         });
     });

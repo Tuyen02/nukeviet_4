@@ -34,5 +34,12 @@ $sys_info['http_only'] = true;
 $sys_info['https_only'] = false;
 $sys_info['ip6_support'] = true;
 
+ini_set('display_startup_errors', '0');
+ini_set('log_errors', '0');
+ini_set('display_errors', '0');
+ini_set('session.cookie_httponly', '1');
+ini_set('session.gc_maxlifetime', '3600');
+ini_set('user_agent', 'NV4');
+
 $serverInfoUpdated = true;
-$iniSaveTime = 1736559856;
+$iniSaveTime = 1739457517;

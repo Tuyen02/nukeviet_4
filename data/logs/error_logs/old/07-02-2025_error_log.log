@@ -1,0 +1,16 @@
+[Fri, 07 Feb 2025 08:10:54 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined array key "in_groups"] [FILE: /modules/fileserver/functions.php] [LINE: 21] [TRACE:]
+#1  LINE: 349   FILE: /index.php
+
+[Fri, 07 Feb 2025 08:47:02 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined array key 1] [FILE: /modules/fileserver/functions.php] [LINE: 10] [TRACE:]
+#1  LINE: 349   FILE: /index.php
+
+[Fri, 07 Feb 2025 08:47:02 +0700] [nuke4.my] [127.0.0.1] [Run-time notices(8192): preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated] [FILE: /modules/fileserver/functions.php] [LINE: 10] [TRACE:]
+#1  LINE: 349   FILE: /index.php
+#2  LINE: 10    FILE: /modules/fileserver/functions.php
+
+[Fri, 07 Feb 2025 08:47:02 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined array key 2] [FILE: /modules/fileserver/functions.php] [LINE: 11] [TRACE:]
+#1  LINE: 349   FILE: /index.php
+
+[Fri, 07 Feb 2025 08:47:02 +0700] [nuke4.my] [127.0.0.1] [Warning(2): Undefined array key 2] [FILE: /modules/fileserver/functions.php] [LINE: 12] [TRACE:]
+#1  LINE: 349   FILE: /index.php
+

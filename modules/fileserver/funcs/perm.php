@@ -24,11 +24,6 @@ $base_url = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DA
 //$canonicalUrl = getCanonicalUrl($page_url, true, true);
 $array_mod_title[] = [
     'catid' => 0,
-    'title' => $lang_module['perm'],
-    'link' => $base_url
-];
-$array_mod_title[] = [
-    'catid' => 0,
     'title' => $row['file_name'],
     'link' => $base_url
 ];
@@ -119,7 +114,7 @@ if (defined('NV_IS_SPADMIN')) {
     $message = $lang_module['not_thing_to_do'];
 }
 
-$contents = nv_page_perm($row, $file_id, $group_read_checked, $group_write_checked, $other_read_checked, $other_write_checked, $message);
+$contents = nv_fileserver_perm($row, $file_id, $group_read_checked, $group_write_checked, $other_read_checked, $other_write_checked, $message);
 
 include NV_ROOTDIR . '/includes/header.php';
 echo nv_site_theme($contents);
