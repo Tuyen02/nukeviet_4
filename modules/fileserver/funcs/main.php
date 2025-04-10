@@ -401,7 +401,6 @@ if (!empty($action)) {
     nv_jsonOutput(['status' => $status, 'message' => $mess]);
 }
 
-$download = $nv_Request->get_int('download', 'get', 0);
 if ($download == 1) {
     $file_id = $nv_Request->get_int('file_id', 'get', 0);
 
@@ -418,19 +417,24 @@ if ($download == 1) {
         $zip = '';
 
         if ($is_folder == 1) {
+            // Tạo file nén với tên trùng với tên thư mục
             $zipFileName = $file_name . '.zip';
             $zipFilePath = '/data/tmp/' . $zipFileName;
             $zipFullPath = NV_ROOTDIR . $zipFilePath;
-            
+
             $zipArchive = new ZipArchive();
             if ($zipArchive->open($zipFullPath, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) {
+                // Thêm thư mục cha vào file nén
+                $zipArchive->addEmptyDir($file_name); // Thêm thư mục cha vào zip
+
+                // Duyệt qua tất cả các file và thư mục con
                 $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($file_path), RecursiveIteratorIterator::LEAVES_ONLY);
                 
                 foreach ($files as $name => $fileInfo) {
                     if (!$fileInfo->isDir()) {
                         $fileRealPath = $fileInfo->getRealPath();
                         $relativePath = substr($fileRealPath, strlen($file_path) + 1);
-                        $zipArchive->addFile($fileRealPath, $relativePath);
+                        $zipArchive->addFile($fileRealPath, $file_name . '/' . $relativePath); // Thêm file vào thư mục cha trong zip
                     }
                 }
                 $zipArchive->close();
